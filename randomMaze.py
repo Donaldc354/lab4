@@ -363,12 +363,12 @@ def center():
         linchDistance = lDistance * 0.03937
         rinchDistance = rDistance * 0.03937
 
-        if linchDistance < 9:
+        if linchDistance < 6:
             print("left Sensor, " )
             pwm.set_pwm(LSERVO, 0, math.floor(1.57 / 20 * 4096))
-            pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
+            pwm.set_pwm(RSERVO, 0, math.floor(1.44 / 20 * 4096))
 
-        if rinchDistance < 9:
+        if rinchDistance < 6:
             pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.43 / 20 * 4096))
 
@@ -472,7 +472,7 @@ while startFlag:
         #setSpeedsIPS(2,1)
     center()
 
-    
+    startFlag = false
     pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
     pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
     now = time.time()
