@@ -333,11 +333,11 @@ def motionToGoal():
     if finchDistance < 6:
         if rinchDistance > 8:
             if linchDistance > 8:
-    	        print("Turning Left!")
+                print("Turning Left!")
                 setSpeedsIPS(0,2)
-    	        #leftTurn()
-    	        time.sleep(5)
-    	        wallFollowing()
+                #leftTurn()
+                time.sleep(5)
+                wallFollowing()
     
     setSpeedsIPS(2,2)
 
