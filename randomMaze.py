@@ -358,6 +358,14 @@ def center():
             setSpeedsIPS(2,4)
         if rDistance > 8:
             setSpeedsIPS(4,2)
+        fDistance = fSensor.get_distance()
+        lDistance = lSensor.get_distance()
+        rDistance = rSensor.get_distance()
+
+        # Converts readings from milimeters to inches
+        finchDistance = fDistance * 0.03937
+        linchDistance = lDistance * 0.03937
+        rinchDistance = rDistance * 0.03937
 
 
     if lDistance > 8:
