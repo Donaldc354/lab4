@@ -407,7 +407,7 @@ while startFlag:
             sleep(pi/2)
         setSpeedsIPS(2,1)
 
-    setSpeeds(3,3)
+    setSpeedsIPS(3,3)
     
     now = time.time()
     
