@@ -334,7 +334,7 @@ def motionToGoal():
         if rinchDistance > 8:
             if linchDistance > 8:
     	        print("Turning Left!")
-                setSpeeds(0,2)
+                setSpeedsIPS(0,2)
     	        #leftTurn()
     	        time.sleep(5)
     	        wallFollowing()
