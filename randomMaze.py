@@ -355,9 +355,13 @@ def center():
         if lDistance < 6:
             pwm.set_pwm(LSERVO, 0, math.floor(1.57 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
-        if rDistance < 6:
+        if lDistance > 6:
             pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.43 / 20 * 4096))
+    
+    if fDistance < 4:
+        pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
+        pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
         
 
 
