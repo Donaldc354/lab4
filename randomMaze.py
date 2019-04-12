@@ -354,27 +354,23 @@ def center():
     linchDistance = lDistance * 0.03937
     rinchDistance = rDistance * 0.03937
 
-    while fDistance > 7 and (rDistance < 14 or lDistance < 14):
-        if rDistance < 7 and rDistance > 6:
-            setSpeedsIPS(3,2)
-        if lDistance < 7 and lDistance > 6:
-            setSpeedsIPS(2,3)
+    while fDistance > 4:
+        while lDistance < 8 and rDistance < 8:
+            print("Ldistance < 8 , rDistance < 8")
+            setSpeedsIPS(3,3)
 
-        if rDistance < 5 and rDistance > 4:
-            setSpeedsIPS(4,2)
-        if lDistance < 5 and lDistance > 4:
+        if lDistance > 8:
             setSpeedsIPS(2,4)
-        
-        if lDistance < 4:
-            setSpeedsIPS(5,3)
-        if rDistance < 4:
-            setSpeedsIPS(3,5)
+        if rDistance > 8:
+            setSpeedsIPS(4,2)
 
-    while rDistance > 14:
-        setSpeedsIPS(5,3)
-    while lDistance > 14:
-        setSpeedsIPS(3,5)
 
+    if lDistance > 8:
+        setSpeedsIPS(2,4)
+        sleep(pi/2)
+    if rDistance > 8:
+        setSpeedsIPS(4,2) 
+        sleep(pi/2)
 
 
 
