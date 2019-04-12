@@ -342,6 +342,46 @@ def motionToGoal():
     
     setSpeedsIPS(2,2)
 
+def center():
+
+    #measure distances..
+    fDistance = fSensor.get_distance()
+    lDistance = lSensor.get_distance()
+    rDistance = rSensor.get_distance()
+
+	# Converts readings from milimeters to inches
+    finchDistance = fDistance * 0.03937
+    linchDistance = lDistance * 0.03937
+    rinchDistance = rDistance * 0.03937
+
+    while fDistance > 7 and (rDistance < 14 or lDistance < 14):
+        if rDistance < 7 and rDistance > 6:
+            setSpeedsIPS(3,2)
+        if lDistance < 7 and lDistance > 6:
+            setSpeeds(2,3)
+
+        if rDistance < 5 and rDistance > 4:
+            setSpeedsIPS(4,2)
+        if lDistance < 5 and lDistance > 4:
+            setSpeedsIPS(2,4)
+        
+        if lDistance < 4:
+            setSpeedsIPS(5,3)
+        if rDistance < 4:
+            setSpeedsIPS(3,5)
+
+    while rDistance > 14:
+        setSpeeds(5,3)
+    while lDistance > 14:
+        setSpeedsIPS(3,5)
+
+
+
+
+
+
+
+
 
 # Attach the Ctrl+C signal interrupt and initialize encoders
 signal.signal(signal.SIGINT, ctrlC)
@@ -391,27 +431,27 @@ while startFlag:
 
     #Constant following
 
-    if rDistance < 3:
-        setSpeedsIPS(1,2)
+    #if rDistance < 3:
+       # setSpeedsIPS(1,2)
+
+    #if lDistance < 3:
+       # setSpeedsIPS(2,1)
 
 
-    if lDistance < 3:
-        setSpeedsIPS(2,1)
-
-
-    while fDistance < 3:
-        while lDistance < 3:
-            setSpeedsIPS(2,1)
+   # while fDistance < 3:
+        #while lDistance < 3:
+            #setSpeedsIPS(2,1)
             #sleep(pi/2)
-        setSpeedsIPS(1,2)
+       # setSpeedsIPS(1,2)
 
-    while fDistance < 3:
-        while rDistance < 3:
-            setSpeedsIPS(1,2)
+    #while fDistance < 3:
+        #while rDistance < 3:
+           # setSpeedsIPS(1,2)
             #sleep(pi/2)
-        setSpeedsIPS(2,1)
+        #setSpeedsIPS(2,1)
+    center()
 
-    setSpeedsIPS(3,3)
+    
     
     now = time.time()
     
