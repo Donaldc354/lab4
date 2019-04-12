@@ -83,19 +83,6 @@ GPIO.output(FSHDN, GPIO.HIGH)
 time.sleep(0.01)
 fSensor.start_ranging(VL53L0X.VL53L0X_GOOD_ACCURACY_MODE)
 
-FPS_SMOOTHING = 0.9
-
-# Window names
-WINDOW1 = "Adjustable Mask - Press Esc to quit"
-WINDOW2 = "Detected Blobs - Press Esc to quit"
-
-# Default HSV ranges
-# Note: the range for hue is 0-180, not 0-255
-minH =   88; minS = 148; minV = 92;
-maxH = 180; maxS = 255; maxV = 255;
-
-
-
 def ctrlC(signum, frame):
     print("Exiting")
     
@@ -207,7 +194,7 @@ def goalSearch():
         pwm.set_pwm(LSERVO, 0, math.floor(1.515 / 20 * 4096))
         pwm.set_pwm(RSERVO, 0, math.floor(1.515 / 20 * 4096))
 
-def motionToGoal():
+
     print("IM GOING THE GOALLLLLL!!!!")
     #sensorCount = 0
 
@@ -321,40 +308,38 @@ def motionToGoal():
     rinchDistance = rDistance * 0.03937
    	# 0.394 is the conversion rate from cm to inches Determining error amount
 
-   	# fError is the calculated respective error value aka the e(t) value
-    ferror = 5.0 - finchDistance
-
-    # Control Signal aka u(t)  = Kp * e(t)
-    controlSignal = kpValue * error
-
-    # Calculating new control signal value by running control signal through saturation function
-    newSignal = saturationFunction(controlSignal)
-
-    setSpeedsIPS(newSignal, newSignal)
-
+    setSpeedsIPS(2,2)
 
     if finchDistance < 6:
         if linchDistance < 6:
             print("Turning Right")
-            rightTurn()
+            setSpeedsIPS(2,1)
+            #rightTurn()
             time.sleep(0.25)
             wallFollowing()
     
+    setSpeedsIPS(2,2)
+
     if finchDistance < 6:
         if rinchDistance < 6:
             print("Turning Left")
-            leftTurn()
+            #leftTurn()
+            setSpeedsIPS(setSpeeds)
             time.sleep(0.25)
             wallFollowing()
     
+    setSpeedsIPS(2,2)
 
     if finchDistance < 6:
         if rinchDistance > 8:
             if linchDistance > 8:
     	        print("Turning Left!")
-    	        leftTurn()
-    	        time.sleep(0.25)
+                setSpeeds(0,2)
+    	        #leftTurn()
+    	        time.sleep(5)
     	        wallFollowing()
+    
+    setSpeedsIPS(2,2)
 
 
 # Attach the Ctrl+C signal interrupt and initialize encoders
