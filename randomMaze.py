@@ -403,6 +403,12 @@ def center():
     pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
     pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
 
+    if linchDistance > 13:
+        pwm.set_pwm(LSERVO, 0, math.floor(1.47 / 20 * 4096))
+        pwm.set_pwm(RSERVO, 0, math.floor(1.47 / 20 * 4096))
+        time.sleep(0.9)
+
+
 
 # Attach the Ctrl+C signal interrupt and initialize encoders
 signal.signal(signal.SIGINT, ctrlC)
@@ -423,9 +429,9 @@ pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
 
 startFlag = False
 selectCommand = ' '
-pwm.set_pwm(LSERVO, 0, math.floor(1.45 / 20 * 4096))
-pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
-time.sleep(0.9)
+#pwm.set_pwm(LSERVO, 0, math.floor(1.45 / 20 * 4096))
+#pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
+#time.sleep(0.9)
 # Holds program until command value is entered
 while selectCommand != 's':
       selectCommand = input("Please enter \'s\' to begin robot movement: ")
