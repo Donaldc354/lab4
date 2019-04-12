@@ -350,35 +350,8 @@ def center():
     rinchDistance = rDistance * 0.03937
 
     while fDistance > 4:
-        while lDistance < 8 and rDistance < 8:
-            print("Ldistance < 8 , rDistance < 8")
-            setSpeedsIPS(3,3)
-
-        if lDistance > 8:
-            setSpeedsIPS(2,4)
-        if rDistance > 8:
-            setSpeedsIPS(4,2)
-        fDistance = fSensor.get_distance()
-        lDistance = lSensor.get_distance()
-        rDistance = rSensor.get_distance()
-
-        # Converts readings from milimeters to inches
-        finchDistance = fDistance * 0.03937
-        linchDistance = lDistance * 0.03937
-        rinchDistance = rDistance * 0.03937
-
-
-    if lDistance > 8:
-        setSpeedsIPS(2,4)
-        sleep(pi/2)
-    if rDistance > 8:
-        setSpeedsIPS(4,2) 
-        sleep(pi/2)
-
-
-
-
-
+        pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
+        pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
 
 
 
@@ -413,8 +386,8 @@ startFlag = True
 while startFlag:
     # Calculate FPS
 
-    pwm.set_pwm(LSERVO, 0, math.floor(1.48 / 20 * 4096))
-    pwm.set_pwm(RSERVO, 0, math.floor(1.48 / 20 * 4096))
+    #pwm.set_pwm(LSERVO, 0, math.floor(1.48 / 20 * 4096))
+    #pwm.set_pwm(RSERVO, 0, math.floor(1.48 / 20 * 4096))
 
     #measure distances..
     fDistance = fSensor.get_distance()
@@ -451,7 +424,8 @@ while startFlag:
     center()
 
     
-    
+    pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
+    pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
     now = time.time()
     
 
