@@ -11,8 +11,8 @@ import csv
 import random
 
 import cv2 as cv
-from ThreadedWebcam import ThreadedWebcam
-from UnthreadedWebcam import UnthreadedWebcam
+#from ThreadedWebcam import ThreadedWebcam
+#from UnthreadedWebcam import UnthreadedWebcam
 
 #Global Variables
 startTime = time.time()
