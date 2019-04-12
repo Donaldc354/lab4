@@ -363,12 +363,12 @@ def center():
         linchDistance = lDistance * 0.03937
         rinchDistance = rDistance * 0.03937
 
-        if linchDistance < 8:
+        if linchDistance < 6:
             print("left Sensor less than 8")
-            pwm.set_pwm(LSERVO, 0, math.floor(1.56 / 20 * 4096))
+            pwm.set_pwm(LSERVO, 0, math.floor(1.57 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
 
-        if rinchDistance < 8:
+        if rinchDistance < 6:
             pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.44 / 20 * 4096))
 
