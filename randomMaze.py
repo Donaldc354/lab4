@@ -391,24 +391,24 @@ while startFlag:
 
     #Constant following
 
-    if rDistance < 4:
+    if rDistance < 3:
         setSpeedsIPS(1,2)
 
 
-    if lDistance < 4:
+    if lDistance < 3:
         setSpeedsIPS(2,1)
 
 
-    while fDistance < 7:
-        while lDistance < 7:
+    while fDistance < 3:
+        while lDistance < 3:
             setSpeedsIPS(2,1)
-            sleep(pi/2)
+            #sleep(pi/2)
         setSpeedsIPS(1,2)
 
-    while fDistance < 7:
-        while rDistance < 7:
+    while fDistance < 3:
+        while rDistance < 3:
             setSpeedsIPS(1,2)
-            sleep(pi/2)
+            #sleep(pi/2)
         setSpeedsIPS(2,1)
 
     setSpeedsIPS(3,3)
