@@ -397,7 +397,7 @@ def center():
     
     
     setSpeedsIPS(3,3)
-    time.sleep(3):
+    time.sleep(3)
         
     
     pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
