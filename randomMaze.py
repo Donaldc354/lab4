@@ -408,6 +408,10 @@ def center():
         pwm.set_pwm(RSERVO, 0, math.floor(1.47 / 20 * 4096))
         time.sleep(0.9)
 
+    pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
+    pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
+    
+
 
 
 # Attach the Ctrl+C signal interrupt and initialize encoders
