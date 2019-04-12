@@ -358,7 +358,7 @@ def center():
         if rDistance < 7 and rDistance > 6:
             setSpeedsIPS(3,2)
         if lDistance < 7 and lDistance > 6:
-            setSpeeds(2,3)
+            setSpeedsIPS(2,3)
 
         if rDistance < 5 and rDistance > 4:
             setSpeedsIPS(4,2)
@@ -371,7 +371,7 @@ def center():
             setSpeedsIPS(3,5)
 
     while rDistance > 14:
-        setSpeeds(5,3)
+        setSpeedsIPS(5,3)
     while lDistance > 14:
         setSpeedsIPS(3,5)
 
