@@ -338,7 +338,7 @@ def motionToGoal():
     setSpeedsIPS(2,2)
 
 def center():
-
+    
     #measure distances..
     fDistance = fSensor.get_distance()
     lDistance = lSensor.get_distance()
@@ -349,9 +349,16 @@ def center():
     linchDistance = lDistance * 0.03937
     rinchDistance = rDistance * 0.03937
 
+    pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
+    pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
     while fDistance > 4:
-        pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
-        pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
+        if lDistance < 6:
+            pwm.set_pwm(LSERVO, 0, math.floor(1.57 / 20 * 4096))
+            pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
+        if rDistance < 6:
+            pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
+            pwm.set_pwm(RSERVO, 0, math.floor(1.43 / 20 * 4096))
+        
 
 
 
