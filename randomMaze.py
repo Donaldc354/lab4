@@ -127,12 +127,12 @@ def setSpeedsIPS(ipsLeft, ipsRight):
 
       if ipsLeft < 0 or ipsRight < 0:
             # Setting appropiate speeds to the servos when going forwards
-            pwm.set_pwm(LSERVO, 0, math.floor(lPwmValue / 20 * 4096))
-            pwm.set_pwm(RSERVO, 0, math.floor(setDifference(rPwmValue) / 20 * 4096))
+            pwm.set_pwm(LSERVO, 0, math.floor(setDifference(lPwmValue)    / 20 * 4096))
+            pwm.set_pwm(RSERVO, 0, math.floor(rPwmValue / 20 * 4096))
       elif ipsLeft >= 0 or ipsRight >= 0:
             # Setting apporpiate speeds to the servos when going backwards
-            pwm.set_pwm(LSERVO, 0, math.floor(setDifference(lPwmValue) / 20 * 4096))
-            pwm.set_pwm(RSERVO, 0, math.floor(rPwmValue / 20 * 4096))
+            pwm.set_pwm(LSERVO, 0, math.floor(lPwmValue / 20 * 4096))
+            pwm.set_pwm(RSERVO, 0, math.floor(setDifference(rPwmValue) / 20 * 4096))
 def spinIPS(ipsLeft, ipsRight):
       # Converting inches per second into revolutions per second
       rpsLeft = float(math.ceil((ipsLeft / 8.20) * 100) / 100)
