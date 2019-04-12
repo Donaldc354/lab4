@@ -351,7 +351,7 @@ def center():
 
     pwm.set_pwm(LSERVO, 0, math.floor(1.55 / 20 * 4096))
     pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
-    while finchDistance > 6:
+    while finchDistance > 5:
         print("front Sensor greater than 6")
         fDistance = fSensor.get_distance()
         lDistance = lSensor.get_distance()
@@ -364,8 +364,8 @@ def center():
         rinchDistance = rDistance * 0.03937
 
         if linchDistance < 6:
-            print("left Sensor less than 8")
-            pwm.set_pwm(LSERVO, 0, math.floor(1.57 / 20 * 4096))
+            print("left Sensor, " )
+            pwm.set_pwm(LSERVO, 0, math.floor(1.56 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.45 / 20 * 4096))
 
         if rinchDistance < 6:
@@ -376,23 +376,31 @@ def center():
             print("front Sensor greater than 6")
             pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
+            break
 
         if linchDistance > 12:
             print("front Sensor greater than 6")
             pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
+            break
         
         if rinchDistance > 12:
             print("front Sensor greater than 6")
             pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
             pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
+            break
     
     if finchDistance < 3:
         print("front Sensor less than 4")
         pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
         pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
-        
-
+    
+    
+    setSpeedsIPS(3,3)
+    while time.sleep(3):
+    
+    pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
+    pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
 
 
 # Attach the Ctrl+C signal interrupt and initialize encoders
