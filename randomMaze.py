@@ -21,6 +21,7 @@ currentTime = 0
 fps = 0.0
 prev = 0.0
 x_pos = 0
+pi = 3.142
 
 kpValue = 0.9
 
@@ -316,7 +317,7 @@ def motionToGoal():
             setSpeedsIPS(2,1)
             #rightTurn()
             time.sleep(0.25)
-            wallFollowing()
+            #wallFollowing()
     
     setSpeedsIPS(2,2)
 
@@ -326,7 +327,7 @@ def motionToGoal():
             #leftTurn()
             setSpeedsIPS(setSpeeds)
             time.sleep(0.25)
-            wallFollowing()
+            #wallFollowing()
 
     setSpeedsIPS(2,2)
 
@@ -337,7 +338,7 @@ def motionToGoal():
                 setSpeedsIPS(0,2)
                 #leftTurn()
                 time.sleep(5)
-                wallFollowing()
+                #wallFollowing()
     
     setSpeedsIPS(2,2)
 
@@ -388,7 +389,25 @@ while startFlag:
 
 
 
-    motionToGoal()
+    #Constant following
+
+    while rDistance < 7:
+        setSpeedsIPS(1,2)
+        sleep(pi/2)
+
+    while fDistance < 7:
+        while lDistance < 7:
+            setSpeedsIPS(2,1)
+            sleep(pi/2)
+        setSpeedsIPS(1,2)
+
+    while fDistance < 7:
+        while rDistance < 7:
+            setSpeedsIPS(1,2)
+            sleep(pi/2)
+        setSpeedsIPS(2,1)
+
+    setSpeeds(3,3)
     
     now = time.time()
     
