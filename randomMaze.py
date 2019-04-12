@@ -327,7 +327,7 @@ def motionToGoal():
             setSpeedsIPS(setSpeeds)
             time.sleep(0.25)
             wallFollowing()
-    
+
     setSpeedsIPS(2,2)
 
     if finchDistance < 6:
