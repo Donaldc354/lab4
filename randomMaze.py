@@ -322,7 +322,7 @@ def motionToGoal():
    	# 0.394 is the conversion rate from cm to inches Determining error amount
 
    	# fError is the calculated respective error value aka the e(t) value
-    error = 5.0 - inchDistance
+    ferror = 5.0 - ifnchDistance
 
     # Control Signal aka u(t)  = Kp * e(t)
     controlSignal = kpValue * error
