@@ -395,7 +395,7 @@ while startFlag:
         setSpeedsIPS(1,2)
 
 
-    if lDistance < 4
+    if lDistance < 4:
         setSpeedsIPS(2,1)
 
 
