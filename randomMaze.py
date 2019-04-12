@@ -351,11 +351,10 @@ def motionToGoal():
     if finchDistance < 6:
         if rinchDistance > 8:
             if linchDistance > 8:
-
-    	print("Turning Left!")
-    	leftTurn()
-    	time.sleep(0.25)
-    	wallFollowing()
+    	    print("Turning Left!")
+    	    leftTurn()
+    	    time.sleep(0.25)
+    	    wallFollowing()
 
 
 # Attach the Ctrl+C signal interrupt and initialize encoders
