@@ -356,11 +356,13 @@ def center():
         fDistance = fSensor.get_distance()
         lDistance = lSensor.get_distance()
         rDistance = rSensor.get_distance()
+        print("Front Sensor: ", fDistance)
 
         # Converts readings from milimeters to inches
         finchDistance = fDistance * 0.03937
         linchDistance = lDistance * 0.03937
         rinchDistance = rDistance * 0.03937
+
         if lDistance < 6:
             print("left Sensor less than 6")
             pwm.set_pwm(LSERVO, 0, math.floor(1.57 / 20 * 4096))
