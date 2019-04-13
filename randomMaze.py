@@ -396,8 +396,8 @@ def center():
         pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
     
     
-    setSpeedsIPS(3,3)
-    time.sleep(3)
+    #setSpeedsIPS(3,3)
+    #time.sleep(3)
         
     
     pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
@@ -408,9 +408,13 @@ def center():
         pwm.set_pwm(RSERVO, 0, math.floor(1.47 / 20 * 4096))
         time.sleep(2)
 
-    pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
-    pwm.set_pwm(RSERVO, 0, math.floor(1.5 / 20 * 4096))
-    
+    if finchDistance < 5.0:
+        sensorCount += 1
+        if sensorCount > 4:
+            frontDist()
+    else :
+        sensorCount = 0
+
 
 
 
@@ -483,6 +487,7 @@ while startFlag:
             #sleep(pi/2)
         #setSpeedsIPS(2,1)
     center()
+
 
     startFlag = False
     #pwm.set_pwm(LSERVO, 0, math.floor(1.5 / 20 * 4096))
